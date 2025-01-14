@@ -2,7 +2,7 @@
 title: Server-side encryption of Azure managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-ms.date: 01/11/2024
+ms.date: 01/08/2025
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: azure-disk-storage
@@ -58,7 +58,9 @@ You must grant access to managed disks in your Key Vault or managed HSM to use y
 
 The following diagram shows how managed disks use Microsoft Entra ID and Azure Key Vault to make requests using the customer-managed key:
 
-:::image type="content" source="media/disk-encryption/customer-managed-keys-sse-managed-disks-workflow.png" alt-text="Diagram of managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The set is associated to a VM, which allows the disk to make use of Microsoft Entra ID to authenticate" lightbox="media/disk-encryption/customer-managed-keys-sse-managed-disks-workflow.png":::
+<!--Art Library Source# ConceptArt-0-000-028 3-CompletedArt -->
+
+:::image type="content" source="media/disk-encryption/customer-managed-keys-sse-managed-disks-workflow.svg" alt-text="Diagram of managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The set is associated to a VM, which allows the disk to make use of Microsoft Entra ID to authenticate." lightbox="media/disk-encryption/customer-managed-keys-sse-managed-disks-workflow.svg":::
 
 The following list explains the diagram in more detail:
 
@@ -123,11 +125,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 Double encryption at rest isn't currently supported with either Ultra Disks or Premium SSD v2 disks.
 
-### Supported regions
-
-Double encryption is available in all regions that managed disks are available.
-
-To enable double encryption at rest for managed disks, see our articles covering how to enable it with either the [Azure PowerShell module](windows/disks-enable-double-encryption-at-rest-powershell.md), the [Azure CLI](linux/disks-enable-double-encryption-at-rest-cli.md) or the [Azure portal](disks-enable-double-encryption-at-rest-portal.md).
+To enable double encryption at rest for managed disks, see [Enable double encryption at rest for managed disks](disks-enable-double-encryption-at-rest-portal.md).
 
 ## Server-side encryption versus Azure disk encryption
 
@@ -138,7 +136,7 @@ To enable double encryption at rest for managed disks, see our articles covering
 ## Next steps
 
 - Enable end-to-end encryption using encryption at host with either the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md), the [Azure CLI](linux/disks-enable-host-based-encryption-cli.md), or the [Azure portal](disks-enable-host-based-encryption-portal.md).
-- Enable double encryption at rest for managed disks with either the [Azure PowerShell module](windows/disks-enable-double-encryption-at-rest-powershell.md), the [Azure CLI](linux/disks-enable-double-encryption-at-rest-cli.md) or the [Azure portal](disks-enable-double-encryption-at-rest-portal.md).
+- To enable double encryption at rest for managed disks, see [Enable double encryption at rest for managed disks](disks-enable-double-encryption-at-rest-portal.md).
 - Enable customer-managed keys for managed disks with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.yml).
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [What is Azure Key Vault?](/azure/key-vault/general/overview)
