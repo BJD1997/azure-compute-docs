@@ -92,7 +92,7 @@ VM Image Builder uses the provided [user-identity](/azure/active-directory/manag
 Create a user-assigned identity so that VM Image Builder can access the storage account where the script is stored.
 
 ```azurecli-interactive
-identityName=aibBuiUserId$(date +'%s')
+identityName="aibBuiUserId$(date +'%s')"
 az identity create -g $imageResourceGroup -n $identityName
 
 # Get the identity ID
